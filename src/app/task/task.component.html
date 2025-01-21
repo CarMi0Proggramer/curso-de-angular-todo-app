@@ -1,0 +1,11 @@
+<div class="task">
+  <div>
+    <h4>{{ task.name }}</h4>
+    <p>{{ task.description }}</p>
+    <span>{{ task.status }}</span>
+  </div>
+  <div>
+    <button>Edit</button>
+    <button [disabled]="task.status === 'completed'">Delete</button>
+  </div>
+</div>
