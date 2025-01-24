@@ -1,10 +1,40 @@
 <div class="task">
   <div>
-    <span>{{ task.status }}</span>
+    <span
+      [class.task-status-completed]="this.task.status === 'COMPLETED'"
+      [class.task-status-pending]="this.task.status === 'PENDING'"
+      [class.task-status-in-progress]="this.task.status === 'IN_PROGRESS'"
+    ></span>
     <h4>{{ task.name }}</h4>
   </div>
   <div>
-    <button>Edit</button>
-    <button [disabled]="task.status === 'completed'">Delete</button>
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" (click)="changeStatus('COMPLETED')"
+            >Completado</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="changeStatus('PENDING')"
+            >Pendiente</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" (click)="changeStatus('IN_PROGRESS')"
+            >En progreso</a
+          >
+        </li>
+      </ul>
+    </div>
+    <button [disabled]="this.task.status !== 'COMPLETED'">Delete</button>
   </div>
 </div>

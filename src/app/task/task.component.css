@@ -50,3 +50,9 @@ button:disabled {
   border: 5px solid #fde000;
   padding: 7px;
 }
+
+.task-status-in-progress {
+  border-radius: 50%;
+  border: 5px solid #0083fd;
+  padding: 7px;
+}

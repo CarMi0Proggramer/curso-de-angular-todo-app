@@ -8,6 +8,4 @@ import { TaskComponent } from './task/task.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'curso-de-angular';
-}
+export class AppComponent {}
