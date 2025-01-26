@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "name": "Mi primer tarea",
+      "description": "Esta va a ser mi primer tarea",
+      "status": "PENDING"
+    },
+    {
+      "name": "Mi segunda tarea",
+      "description": "Esta va a ser mi segunda tarea",
+      "status": "IN_PROGRESS"
+    }
+  ]
+}

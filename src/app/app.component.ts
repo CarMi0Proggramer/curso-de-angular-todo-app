@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskComponent } from './task/task.component';
 import { Task } from './task/task.interface';
 import { TaskStatus } from './task/task-status.enum';
+import { TaskService } from './task/task.service';
 
 @Component({
   selector: 'app-root',
@@ -11,18 +12,14 @@ import { TaskStatus } from './task/task-status.enum';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  tasks: Task[] = [
-    {
-      name: 'Mi primer tarea',
-      description: 'Esta va a ser mi primer tarea',
-      status: TaskStatus.PENDING,
-    },
-    {
-      name: 'Mi segunda tarea',
-      description: 'Esta va a ser mi segunda tarea',
-      status: TaskStatus.IN_PROGRESS,
-    },
-  ];
+  private readonly taskService = inject(TaskService);
+  tasks: Task[] = [];
+
+  constructor() {
+    this.taskService.getAll().subscribe((tasks) => {
+      this.tasks = tasks;
+    });
+  }
 
   onTaskStatusChanged(task: Task) {
     const index = this.tasks.findIndex((t) => t.name === task.name);
