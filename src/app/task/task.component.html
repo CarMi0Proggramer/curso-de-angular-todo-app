@@ -1,11 +1,11 @@
 <div class="task">
   <div>
     <span
-      [class.task-status-completed]="this.task.status === 'COMPLETED'"
-      [class.task-status-pending]="this.task.status === 'PENDING'"
-      [class.task-status-in-progress]="this.task.status === 'IN_PROGRESS'"
+      [class.task-status-completed]="task().status === 'COMPLETED'"
+      [class.task-status-pending]="task().status === 'PENDING'"
+      [class.task-status-in-progress]="task().status === 'IN_PROGRESS'"
     ></span>
-    <h4>{{ task.name }}</h4>
+    <h4>{{ task().name }}</h4>
   </div>
   <div>
     <div class="dropdown">
@@ -15,7 +15,7 @@
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Dropdown button
+        Cambiar estado
       </button>
       <ul class="dropdown-menu">
         <li>
@@ -35,6 +35,6 @@
         </li>
       </ul>
     </div>
-    <button [disabled]="this.task.status !== 'COMPLETED'">Delete</button>
+    <button [disabled]="task().status !== 'COMPLETED'">Eliminar</button>
   </div>
 </div>

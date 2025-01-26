@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Task } from './task.interface';
 import { TaskStatus } from './task-status.enum';
 
@@ -9,13 +9,13 @@ import { TaskStatus } from './task-status.enum';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  task: Task = {
-    name: 'Mi primer tarea',
-    description: 'Esta va a ser mi primer tarea',
-    status: TaskStatus.PENDING,
-  };
+  task = input.required<Task>();
+  taskStatusChangedEvent = output<Task>();
 
   changeStatus(status: string) {
-    this.task.status = status as TaskStatus;
+    this.taskStatusChangedEvent.emit({
+      ...this.task(),
+      status: status as TaskStatus,
+    });
   }
 }

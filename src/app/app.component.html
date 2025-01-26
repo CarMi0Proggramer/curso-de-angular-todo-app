@@ -5,7 +5,10 @@
   </div>
 
   <section class="tasks">
-    <app-task />
+    <app-task
+      [task]="tasks[0]"
+      (taskStatusChangedEvent)="onTaskStatusChanged($event)"
+    />
   </section>
 </main>
 
