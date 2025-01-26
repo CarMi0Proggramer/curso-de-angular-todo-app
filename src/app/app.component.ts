@@ -17,6 +17,11 @@ export class AppComponent {
       description: 'Esta va a ser mi primer tarea',
       status: TaskStatus.PENDING,
     },
+    {
+      name: 'Mi segunda tarea',
+      description: 'Esta va a ser mi segunda tarea',
+      status: TaskStatus.IN_PROGRESS,
+    },
   ];
 
   onTaskStatusChanged(task: Task) {

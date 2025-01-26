@@ -33,3 +33,9 @@ button {
   font-size: 15px;
   border-radius: 50px;
 }
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

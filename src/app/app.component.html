@@ -5,10 +5,12 @@
   </div>
 
   <section class="tasks">
+    @for (task of tasks; track $index) {
     <app-task
-      [task]="tasks[0]"
+      [task]="task"
       (taskStatusChangedEvent)="onTaskStatusChanged($event)"
     />
+    }
   </section>
 </main>
 
