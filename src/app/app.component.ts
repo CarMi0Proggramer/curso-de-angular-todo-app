@@ -4,10 +4,11 @@ import { TaskComponent } from './task/task.component';
 import { Task } from './task/task.interface';
 import { TaskStatus } from './task/task-status.enum';
 import { TaskService } from './task/task.service';
+import { AddTaskModalComponent } from './add-task-modal/add-task-modal.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TaskComponent],
+  imports: [RouterOutlet, TaskComponent, AddTaskModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

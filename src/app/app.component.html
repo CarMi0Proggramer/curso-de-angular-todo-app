@@ -1,7 +1,9 @@
 <main class="content">
   <div>
     <h1>Tareas</h1>
-    <button>Crear tarea</button>
+    <button data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Crear tarea
+    </button>
   </div>
 
   <section class="tasks">
@@ -10,8 +12,19 @@
       [task]="task"
       (taskStatusChangedEvent)="onTaskStatusChanged($event)"
     />
+    } @empty {
+    <div
+      class="d-flex flex-column justify-content-center gap-1 mx-auto p-2"
+      style="max-width: 428px"
+    >
+      <img src="/task-list.jpg" alt="..." width="64" height="64" />
+      <p class="text-center text-secondary">
+        Aún no has agregado ninguna tarea...
+      </p>
+    </div>
     }
   </section>
+  <app-add-task-modal />
 </main>
 
 <router-outlet />
