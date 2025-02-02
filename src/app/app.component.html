@@ -24,7 +24,7 @@
     </div>
     }
   </section>
-  <app-add-task-modal />
+  <app-add-task-modal (addTaskEvent)="onTaskAdded($event)" />
 </main>
 
 <router-outlet />

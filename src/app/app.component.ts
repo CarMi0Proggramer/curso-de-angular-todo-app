@@ -29,4 +29,8 @@ export class AppComponent {
       this.tasks[index] = task;
     }
   }
+
+  onTaskAdded(task: Task) {
+    this.tasks.push(task);
+  }
 }

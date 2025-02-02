@@ -1,3 +1,19 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "id": "8134",
+      "name": "Mi primer tarea",
+      "status": "PENDING"
+    },
+    {
+      "id": "f244",
+      "name": "Mi Segunda Tarea",
+      "status": "PENDING"
+    },
+    {
+      "id": "a2c0",
+      "name": "Mi Tercera tarea",
+      "status": "PENDING"
+    }
+  ]
 }
