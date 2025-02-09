@@ -51,8 +51,7 @@ export class AddTaskModalComponent {
   }
 
   clearForm() {
-    this.addTaskForm.patchValue({
-      name: '',
+    this.addTaskForm.reset({
       status: 'PENDING',
     });
   }

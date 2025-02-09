@@ -23,7 +23,7 @@ export class AppComponent {
   }
 
   onTaskStatusChanged(task: Task) {
-    const index = this.tasks.findIndex((t) => t.name === task.name);
+    const index = this.tasks.findIndex((t) => t.id === task.id);
 
     if (index !== -1) {
       this.tasks[index] = task;
