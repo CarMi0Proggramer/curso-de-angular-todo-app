@@ -35,6 +35,13 @@
         </li>
       </ul>
     </div>
-    <button [disabled]="task().status !== 'COMPLETED'">Eliminar</button>
+    <button
+      [disabled]="task().status !== 'COMPLETED'"
+      data-bs-toggle="modal"
+      data-bs-target="#confirmDeleteModal"
+      (click)="delete()"
+    >
+      Eliminar
+    </button>
   </div>
 </div>

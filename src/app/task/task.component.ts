@@ -1,6 +1,7 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Task } from './task.interface';
 import { TaskStatus } from './task-status.enum';
+import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-task',
@@ -9,13 +10,22 @@ import { TaskStatus } from './task-status.enum';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
+  private readonly taskService = inject(TaskService);
   task = input.required<Task>();
   taskStatusChangedEvent = output<Task>();
+  taskMarkedForDeleteEvent = output<Task>();
 
   changeStatus(status: string) {
-    this.taskStatusChangedEvent.emit({
-      ...this.task(),
-      status: status as TaskStatus,
-    });
+    this.taskService
+      .update(this.task().id, {
+        status: status as TaskStatus,
+      })
+      .subscribe((task) => {
+        this.taskStatusChangedEvent.emit(task);
+      });
+  }
+
+  delete() {
+    this.taskMarkedForDeleteEvent.emit(this.task());
   }
 }

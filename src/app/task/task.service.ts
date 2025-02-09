@@ -17,4 +17,12 @@ export class TaskService {
   create(data: { name: string; status: string }): Observable<Task> {
     return this.http.post<Task>(this.baseUrl, data);
   }
+
+  delete(id: string): Observable<Task> {
+    return this.http.delete<Task>(`${this.baseUrl}/${id}`);
+  }
+
+  update(id: string, data: Partial<Task>) {
+    return this.http.patch<Task>(`${this.baseUrl}/${id}`, data);
+  }
 }
