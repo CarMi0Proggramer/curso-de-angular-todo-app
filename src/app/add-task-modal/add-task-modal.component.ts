@@ -1,4 +1,10 @@
-import { Component, inject, output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  output,
+  viewChild,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -16,6 +22,8 @@ import { Task } from '../task/task.interface';
 })
 export class AddTaskModalComponent {
   private readonly taskService = inject(TaskService);
+  private readonly closeBtn =
+    viewChild.required<ElementRef<HTMLButtonElement>>('closeModalBtn');
 
   addTaskForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -46,6 +54,7 @@ export class AddTaskModalComponent {
         .subscribe((task) => {
           this.addTaskEvent.emit(task);
           this.clearForm();
+          this.closeBtn().nativeElement.click();
         });
     }
   }
